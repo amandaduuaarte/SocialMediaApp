@@ -4,6 +4,7 @@ import {Button, Text} from 'react-native';
 import {GraduatedStudentFactory} from '@/main/factories/graduatedStudent/graduatedStudent-factory';
 
 import {Container} from './styles';
+import {Typography} from '@/presentation/components/Typography';
 export const Home = (): React.ReactElement => {
   const handleSaveStorage = () => {
     GraduatedStudentFactory.save(
@@ -20,7 +21,7 @@ export const Home = (): React.ReactElement => {
 
   return (
     <Container>
-      <Text>OI</Text>
+      <Typography value="oi" type="Large" />
       <Button title="save" onPress={handleSaveStorage} testID="save_button" />
     </Container>
   );

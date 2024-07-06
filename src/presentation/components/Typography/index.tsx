@@ -1,4 +1,3 @@
-import {Text} from 'react-native';
 import {TextComponent} from './styles';
 import {colors} from '@/presentation/colors';
 

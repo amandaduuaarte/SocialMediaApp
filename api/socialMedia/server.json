@@ -2,11 +2,20 @@
   "userInfo": {
     "name": "Dany Tar",
     "userName": "danyDragons",
-    "accountInfo": {
-      "posts": 35,
-      "followers": 1533,
-      "follows": 153
-    }
+    "accountInfo": [
+      {
+        "label": "Posts",
+        "value": "35"
+      },
+      {
+        "label": "Followers",
+        "value": "1,553"
+      },
+      {
+        "label": "Follows",
+        "value": "153"
+      }
+    ]
   },
   "profile": {
     "photos": {

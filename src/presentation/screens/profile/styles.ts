@@ -23,13 +23,20 @@ export const UserInfoContent = styled.View`
   gap: 12px;
 `;
 
-export const PhotosContainer = styled.View`
-    width: 50%;
-    margin-top: 24px;
-`;
 
 export const PhotosContainerHeader = styled.View`
+  flex: 1;
+  width: 50%;
+  margin: 24px 0;
+  gap: 12px;
+  align-self: center;
   flex-direction: row;
   justify-content: space-between;
   gap: 24px;
+`;
+
+export const Photo = styled.Image`
+  width: 157px;
+  height: 133px;
+  margin-top: 12px;
 `;

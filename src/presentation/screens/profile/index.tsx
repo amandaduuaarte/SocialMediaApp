@@ -1,6 +1,6 @@
 import {
   Container,
-  PhotosContainer,
+  Photo,
   PhotosContainerHeader,
   ProfileIcon,
   UserInfoContainer,
@@ -13,6 +13,9 @@ import {Typography} from '@/presentation/components/Typography';
 
 import PhotosIcon from '@/assets/images/icons/ButtonPhotos.svg';
 import PhotosSavedIcon from '@/assets/images/icons/ButtonSaved.svg';
+import {useGetUserPhotosUseCase} from '@/domain/usecases/profile/useGetUserPhotos';
+import {FlatList, ListRenderItemInfo} from 'react-native';
+import {TUserPhotoPage} from '@/data/types/useCases/profile/useGetUserPhotosTypes';
 
 type TUserInfo = {
   label: string;
@@ -47,8 +50,21 @@ const renderUserInfoItem = ({info}: {info: TUserInfo[]}) => {
   );
 };
 
-// TODO: Ver como posso fazer para listar as fotos do device.
+const renderPhotoItem = ({item}: ListRenderItemInfo<TUserPhotoPage>) => {
+  return <Photo key={item.id} source={{uri: item.source}} />;
+};
+
+const renderHeader = () => {
+  return (
+    <PhotosContainerHeader>
+      <PhotosIcon onPress={() => null} />
+      <PhotosSavedIcon onPress={() => null} />
+    </PhotosContainerHeader>
+  );
+};
 export const Profile = () => {
+  const {data} = useGetUserPhotosUseCase();
+
   return (
     <Container source={ProfileBackground}>
       <ProfileIcon />
@@ -58,12 +74,16 @@ export const Profile = () => {
 
       {renderUserInfoItem({info: mockUserInfo})}
 
-      <PhotosContainer>
-        <PhotosContainerHeader>
-          <PhotosIcon onPress={() => console.log('ooi')} />
-          <PhotosSavedIcon onPress={() => console.log('ooi')} />
-        </PhotosContainerHeader>
-      </PhotosContainer>
+      {data && (
+        <FlatList
+          ListHeaderComponent={renderHeader}
+          data={data.photos.pages}
+          renderItem={renderPhotoItem}
+          numColumns={2}
+          columnWrapperStyle={{gap: 12}}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </Container>
   );
 };

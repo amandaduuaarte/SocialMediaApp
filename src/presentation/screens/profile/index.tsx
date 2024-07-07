@@ -50,10 +50,6 @@ const renderUserInfoItem = ({info}: {info: TUserInfo[]}) => {
   );
 };
 
-const renderPhotoItem = ({item}: ListRenderItemInfo<TUserPhotoPage>) => {
-  return <Photo key={item.id} source={{uri: item.source}} />;
-};
-
 const renderHeader = () => {
   return (
     <PhotosContainerHeader>
@@ -62,15 +58,19 @@ const renderHeader = () => {
     </PhotosContainerHeader>
   );
 };
+
+const renderPhotoItem = ({item}: ListRenderItemInfo<TUserPhotoPage>) => {
+  return <Photo key={item.id} source={{uri: item.source}} />;
+};
 export const Profile = () => {
   const {data} = useGetUserPhotosUseCase();
 
   return (
     <Container source={ProfileBackground}>
-      <ProfileIcon />
+      <ProfileIcon source={{uri: data?.photos.userPhoto}} />
 
-      <Typography value="John Doe" align="center" type="Body" />
-      <Typography value="@johndoe" align="center" type="Small" />
+      <Typography value="Dany Tar" align="center" type="Body" />
+      <Typography value="@danyDragons" align="center" type="Small" />
 
       {renderUserInfoItem({info: mockUserInfo})}
 

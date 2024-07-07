@@ -7,10 +7,10 @@ export const Container = styled.ImageBackground`
   align-items: center;
 `;
 
-export const ProfileIcon = styled.View`
+export const ProfileIcon = styled.Image`
   height: 136px;
   width: 100px;
-  background: red;
+  border-radius: 8px;
 `;
 
 export const UserInfoContainer = styled.View`

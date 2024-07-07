@@ -34,6 +34,7 @@ export const AppRoutes = () => {
   return (
     <Tab.Group
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: colors.c2.accentStroke,
         tabBarInactiveTintColor: colors.c1.black,
         tabBarShowLabel: false,

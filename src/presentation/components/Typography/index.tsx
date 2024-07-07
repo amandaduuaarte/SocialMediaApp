@@ -14,7 +14,7 @@ export type TTypographyTypes =
   | 'Large';
 
 type TProps = {
-  value: string | number;
+  value: string | number | undefined;
   color?: string;
   align?: string;
   type?: TTypographyTypes;

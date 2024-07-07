@@ -1,7 +1,16 @@
 {
+  "userInfo": {
+    "name": "Dany Tar",
+    "userName": "danyDragons",
+    "accountInfo": {
+      "posts": 35,
+      "followers": 1533,
+      "follows": 153
+    }
+  },
   "profile": {
     "photos": {
-      "userPhoto":"https://static.wikia.nocookie.net/gameofthrones/images/b/b6/DanyS8E6.jpg/revision/latest/scale-to-width-down/1200?cb=20220110160915&path-prefix=pt-br",
+      "userPhoto": "https://static.wikia.nocookie.net/gameofthrones/images/b/b6/DanyS8E6.jpg/revision/latest/scale-to-width-down/1200?cb=20220110160915&path-prefix=pt-br",
       "pages": [
         {
           "id": 1,

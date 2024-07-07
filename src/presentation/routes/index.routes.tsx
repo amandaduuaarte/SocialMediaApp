@@ -2,14 +2,15 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {AppRoutes} from './app.routes';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 export const Routes = () => {
-  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>{AppRoutes()}</Stack.Navigator>
+      <Tab.Navigator>{AppRoutes()}</Tab.Navigator>
     </NavigationContainer>
   );
 };

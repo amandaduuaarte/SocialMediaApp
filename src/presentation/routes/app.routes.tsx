@@ -47,25 +47,27 @@ export const AppRoutes = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({color}) => renderTabIcon({icon: ProfileIcon, color}),
-        }}
-      />
-      <Tab.Screen
         name="Messaging"
         component={Messaging}
         options={{
-          tabBarIcon: ({color}) => renderTabIcon({icon: LikeIcon, color}),
+          tabBarIcon: ({color}) =>
+            renderTabIcon({icon: ConversationsIcon, color}),
         }}
       />
+
       <Tab.Screen
         name="Conversations"
         component={Conversations}
         options={{
-          tabBarIcon: ({color}) =>
-            renderTabIcon({icon: ConversationsIcon, color}),
+          tabBarIcon: ({color}) => renderTabIcon({icon: LikeIcon, color}),
+        }}
+      />
+
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({color}) => renderTabIcon({icon: ProfileIcon, color}),
         }}
       />
     </Tab.Group>

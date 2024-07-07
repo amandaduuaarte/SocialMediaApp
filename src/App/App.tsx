@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {AppRoutes} from '../presentation/routes/app.routes';
+import {Routes} from '@/presentation/routes/index.routes';
 
 function App(): React.JSX.Element {
-  return <AppRoutes />;
+  return <Routes />;
 }
 
 export default App;

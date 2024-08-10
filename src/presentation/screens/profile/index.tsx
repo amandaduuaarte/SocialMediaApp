@@ -59,7 +59,10 @@ export const Profile = () => {
 
   return (
     <Container source={ProfileBackground}>
-      <ProfileIcon source={{uri: data?.photos.userPhoto}} />
+      <ProfileIcon
+        testID="profile.photo.icon"
+        source={{uri: data?.photos?.userPhoto}}
+      />
 
       <Typography value={accountInfo?.name} align="center" type="Body" />
       <Typography
@@ -72,7 +75,7 @@ export const Profile = () => {
       {data && (
         <FlatList
           ListHeaderComponent={renderHeader}
-          data={data.photos.pages}
+          data={data?.photos?.pages}
           renderItem={renderPhotoItem}
           numColumns={2}
           columnWrapperStyle={{gap: 12}}

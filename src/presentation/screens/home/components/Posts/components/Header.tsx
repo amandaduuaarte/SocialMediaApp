@@ -11,7 +11,8 @@ type THeader = {
 };
 export const Header = ({userName, photoProfile, hour}: THeader) => {
   const userNameFormatted = `@${userName}`;
-  const shouldShowPostHours = hourFormatted({hour: hour});
+  const hourValueFormatted = hourFormatted({hour: hour});
+
 
   return (
     <PostHeader>
@@ -26,9 +27,9 @@ export const Header = ({userName, photoProfile, hour}: THeader) => {
             color={colors.c1.white}
           />
 
-          {shouldShowPostHours && (
+          {hourValueFormatted && (
             <Typography
-              value={`${hour} hrs ago`}
+              value={`${hourValueFormatted} hrs ago`}
               type="Small"
               color={colors.c1.lightGray}
             />

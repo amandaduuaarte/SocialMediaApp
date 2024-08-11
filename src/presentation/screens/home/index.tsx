@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {
   FlatList,
   ListRenderItemInfo,
@@ -23,6 +23,7 @@ import {useGetFeedInfoUseCase} from '@/domain/useCases/feed/useGetFeedInfo';
 import {TFeed} from '@/data/types/useCases/feed/useGetPostsTypes';
 import {PostInfo} from './components/Posts/components/PostInfo';
 import {Header} from './components/Posts/components/Header';
+import {useFeedStore} from '@/domain/store/feedStore';
 
 const Likes = '@/assets/images/icons/like.png';
 type TProps = TAppRoutesNavigationProps<'Home'>;
@@ -35,36 +36,34 @@ const renderEmptyComponent = () => {
   );
 };
 
-const renderItem = ({item}: ListRenderItemInfo<TFeed>) => {
-  // Regra do tempo da postagem -> so mostra se for acima ou igual a uma hora.
-  // Criar um context com zustand para simular essas mudaças tipo storie visto
-  // like aumentando
-
-  return (
-    <Post source={{uri: item.posts.source}}>
-      <Header
-        hour={item.posts.postWhenInHours}
-        photoProfile={item.userProfile}
-        userName={item.userName}
-      />
-      <PostUserInfo>
-        <PostInfo
-          icon={require('../../../assets/images/icons/like.png')}
-          value={item.posts.likes}
-          action={() => null}
-        />
-
-        <PostInfo
-          icon={require('../../../assets/images/icons/conversations.png')}
-          value={item.posts.comments}
-          action={() => null}
-        />
-      </PostUserInfo>
-    </Post>
-  );
-};
 export const Home = ({navigation}: TProps) => {
   const {data} = useGetFeedInfoUseCase();
+  const {setLike, likes} = useFeedStore();
+
+  const renderItem = useCallback(({item}: ListRenderItemInfo<TFeed>) => {
+    return (
+      <Post source={{uri: item.posts.source}}>
+        <Header
+          hour={item.posts.postWhenInHours}
+          photoProfile={item.userProfile}
+          userName={item.userName}
+        />
+        <PostUserInfo>
+          <PostInfo
+            icon={require('../../../assets/images/icons/like.png')}
+            value={item.posts.likes}
+            action={() => null}
+          />
+
+          <PostInfo
+            icon={require('../../../assets/images/icons/conversations.png')}
+            value={item.posts.comments}
+            action={() => null}
+          />
+        </PostUserInfo>
+      </Post>
+    );
+  }, []);
 
   return (
     <Container>

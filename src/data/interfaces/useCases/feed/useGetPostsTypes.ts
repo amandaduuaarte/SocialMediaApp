@@ -1,3 +1,3 @@
-import { TPost } from "@/data/types/useCases/feed/useGetPostsTypes";
+import { TPosts } from "@/data/types/useCases/feed/useGetPostsTypes";
 
-export type IUseGetPosts = TPost; 
+export type IUseGetPosts = TPosts; 

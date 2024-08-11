@@ -20,7 +20,7 @@ const getFeedInfo = async (): Promise<TResponse> => {
 
 export const getFeedInfoService = () => {
   const {data, isSuccess, isError, refetch, isRefetching} = useQuery({
-    queryKey: 'USER_ACCOUNT',
+    queryKey: 'USER_FEED_INFO',
     queryFn: getFeedInfo,
   });
 

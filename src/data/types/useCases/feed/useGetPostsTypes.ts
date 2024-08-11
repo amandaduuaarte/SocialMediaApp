@@ -1,12 +1,17 @@
 export type TPost = {
-  feed: {
-    userName: string;
-    userProfile: string;
-    posts: {
-      id: number;
-      source: string;
-      likes: number;
-      comments: number;
-    }[];
-  };
+  id: number;
+  source: string;
+  likes: number;
+  comments: number;
+  postWhenInHours: number;
+};
+
+export type TFeed = {
+  userName: string;
+  userProfile: string;
+  posts: TPost;
+};
+
+export type TPosts = {
+  feed: TFeed[];
 };

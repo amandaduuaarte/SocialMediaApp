@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 
 import {IHttpClient, IHttpResponse} from '@/data/interfaces';
-import {GraduatedStudent} from '@/domain/usecases';
+import {GraduatedStudent} from '@/domain/useCases';
 import { TGraduatedStudent } from '@/data/types';
 
 
@@ -104,7 +104,7 @@ describe('GraduatedStudent', () => {
       );
     });
 
-    it.only('should NOT save when request NOT return success', async () => {
+    it('should NOT save when request NOT return success', async () => {
       const {result} = renderHook(
         () => new GraduatedStudent(HttpClient, '', storage),
       );

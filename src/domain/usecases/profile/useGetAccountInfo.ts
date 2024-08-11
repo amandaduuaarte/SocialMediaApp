@@ -1,10 +1,10 @@
-import { getAccountInfoService } from '@/data/services/profile/getAccountInfo';
+import {getAccountInfoService} from '@/data/services/profile/getAccountInfo';
 
 export const useGetAccountInfoUseCase = () => {
   const {data, isError, isSuccess} = getAccountInfoService();
 
   return {
-    data,
+    accountInfo: data,
     isError,
     isSuccess,
   };

@@ -1,6 +1,5 @@
-import {act, fireEvent, render} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 
-import {GraduatedStudentFactory} from '@/main/factories/graduatedStudent/graduatedStudent-factory';
 import {Home} from '@/presentation/screens';
 import {TAppRoutesNavigationProps} from '@/presentation/routes/app.routes';
 

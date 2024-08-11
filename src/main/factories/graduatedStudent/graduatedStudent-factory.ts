@@ -1,4 +1,4 @@
-import {GraduatedStudent} from '@/domain/usecases/graduateStudent';
+import {GraduatedStudent} from '@/domain/useCases/graduateStudent';
 
 import {IGraduatedStudent} from '@/data/interfaces/useCases';
 

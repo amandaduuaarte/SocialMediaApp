@@ -5,7 +5,7 @@ export const useGetUserPhotosUseCase = () => {
   const {data, isError, isSuccess} = getUserPhotos();
 
   return {
-    data,
+    userPhotos: data,
     isError,
     isSuccess,
   };

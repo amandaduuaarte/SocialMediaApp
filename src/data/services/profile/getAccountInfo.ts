@@ -3,7 +3,7 @@ import { IUseGetAccountInfo } from '@/data/interfaces/useCases/profile/useGetAcc
 import {HttpClientAdapter} from '@/main/adapters';
 import {useQuery} from 'react-query';
 
-const getAccountInfo = async (): Promise<IUseGetAccountInfo | undefined> => {
+const getAccountInfo = async (): Promise<IUseGetAccountInfo> => {
   const httpClient = HttpClientAdapter();
 
   try {

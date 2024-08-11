@@ -42,47 +42,46 @@
   },
   "home": {
     "stories": [
-    {
-      "userProfile": "https://upload.wikimedia.org/wikipedia/en/2/22/Cersei_Lannister_in_Black_Dress_in_Season_5.jpg",
-      "isAvailable": true
-    },
-    {
-      "userProfile": "https://i.insider.com/59a5dd9cb065da49008b4878?width=700",
-      "isAvailable": false
-    },
-    {
-      "userProfile": "https://upload.wikimedia.org/wikipedia/pt/f/f2/Arya_stark_s7.jpg",
-      "isAvailable": true
-    },
-    {
-      "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/5/50/S3E9_Robb_Stark_main.jpg/revision/latest?cb=20160718071203",
-      "isAvailable": false
-    }
-  ],
+      {
+        "userProfile": "https://upload.wikimedia.org/wikipedia/en/2/22/Cersei_Lannister_in_Black_Dress_in_Season_5.jpg",
+        "isAvailable": true
+      },
+      {
+        "userProfile": "https://i.insider.com/59a5dd9cb065da49008b4878?width=700",
+        "isAvailable": false
+      },
+      {
+        "userProfile": "https://upload.wikimedia.org/wikipedia/pt/f/f2/Arya_stark_s7.jpg",
+        "isAvailable": true
+      },
+      {
+        "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/5/50/S3E9_Robb_Stark_main.jpg/revision/latest?cb=20160718071203",
+        "isAvailable": false
+      }
+    ],
     "feed": [
       {
         "userName": "aryaNobody",
         "userProfile": "https://upload.wikimedia.org/wikipedia/pt/f/f2/Arya_stark_s7.jpg",
-        "posts": [
-          {
-            "id": 1,
-            "source": "https://www.einerd.com.br/wp-content/uploads/2019/04/arya-stark-game-of-thrones-890x445.jpeg",
-            "likes": 123,
-            "comments": 32
-          }
-        ]
+        "posts": {
+          "id": 1,
+          "source": "https://www.einerd.com.br/wp-content/uploads/2019/04/arya-stark-game-of-thrones-890x445.jpeg",
+          "likes": 123,
+          "comments": 32,
+          "postWhenInHours": 120
+        }
       },
       {
         "userName": "theYoungWolf",
         "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/5/50/S3E9_Robb_Stark_main.jpg/revision/latest?cb=20160718071203",
-        "posts": [
-          {
-            "id": 1,
-            "source": "https://miro.medium.com/v2/resize:fit:736/0*v-7mlXlCuDSFMbBS.jpg"
-          }
-        ]
+        "posts": {
+          "id": 1,
+          "source": "https://miro.medium.com/v2/resize:fit:736/0*v-7mlXlCuDSFMbBS.jpg",
+          "likes": 450,
+          "comments": 52,
+          "postWhenInHours": 240
+        }
       }
     ]
   }
-  
 }

@@ -35,6 +35,7 @@ export const UserPosts = ({userPhotos}: {userPhotos: TUserPhotos}) => {
 
   return (
     <FlatList
+      keyExtractor={item => item.id}
       ListHeaderComponent={renderHeader}
       data={userPhotos?.photos?.pages}
       renderItem={renderPhotoItem}

@@ -1,5 +1,8 @@
 import React from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {
+  NativeStackScreenProps,
+  createNativeStackNavigator,
+} from '@react-navigation/native-stack';
 import {Image, ImageProps} from 'react-native';
 
 import {Home} from '../screens';
@@ -13,13 +16,20 @@ import HomeIcon from '@/assets/images/icons/home.png';
 import ProfileIcon from '@/assets/images/icons/profile.png';
 import ConversationsIcon from '@/assets/images/icons/conversations.png';
 import LikeIcon from '@/assets/images/icons/like.png';
-
-type TAppRoutes = {
+import {AddStories} from '../screens/addStories';
+type TTabRoutes = {
   Home: undefined;
   Profile: undefined;
   Conversations: undefined;
   Messaging: undefined;
 };
+
+type TStackRoutes = {
+  Home: undefined;
+  AddStories: undefined;
+};
+
+type TAppRoutes = TTabRoutes & TStackRoutes;
 
 export type TAppRoutesNavigationProps<T extends keyof TAppRoutes> =
   NativeStackScreenProps<TAppRoutes, T>;
@@ -28,48 +38,70 @@ const renderTabIcon = ({icon, color}: {icon: ImageProps; color: string}) => {
   return <Image source={icon} style={{tintColor: color}} />;
 };
 
-export const AppRoutes = () => {
-  const Tab = createBottomTabNavigator<TAppRoutes>();
-
+export const StackRoutes = () => {
+  const Stack = createNativeStackNavigator<TStackRoutes>();
   return (
-    <Tab.Group
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: colors.c2.accentStroke,
-        tabBarInactiveTintColor: colors.c1.black,
-        tabBarShowLabel: false,
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({color}) => renderTabIcon({icon: HomeIcon, color}),
-        }}
-      />
-      <Tab.Screen
-        name="Messaging"
-        component={Messaging}
-        options={{
-          tabBarIcon: ({color}) =>
-            renderTabIcon({icon: ConversationsIcon, color}),
-        }}
-      />
-
-      <Tab.Screen
-        name="Conversations"
-        component={Conversations}
-        options={{
-          tabBarIcon: ({color}) => renderTabIcon({icon: LikeIcon, color}),
-        }}
-      />
-
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({color}) => renderTabIcon({icon: ProfileIcon, color}),
-        }}
-      />
-    </Tab.Group>
+    <Stack.Navigator>
+      <Stack.Group>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="AddStories" component={AddStories} />
+      </Stack.Group>
+    </Stack.Navigator>
   );
 };
+
+export const TabRoutes = () => {
+  const Tab = createBottomTabNavigator<TTabRoutes>();
+
+  return (
+    <Tab.Navigator>
+      <Tab.Group
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: colors.c2.accentStroke,
+          tabBarInactiveTintColor: colors.c1.black,
+          tabBarShowLabel: false,
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={StackRoutes}
+          options={{
+            tabBarIcon: ({color}) => renderTabIcon({icon: HomeIcon, color}),
+          }}
+        />
+        <Tab.Screen
+          name="Messaging"
+          component={Messaging}
+          options={{
+            tabBarIcon: ({color}) =>
+              renderTabIcon({icon: ConversationsIcon, color}),
+          }}
+        />
+
+        <Tab.Screen
+          name="Conversations"
+          component={Conversations}
+          options={{
+            tabBarIcon: ({color}) => renderTabIcon({icon: LikeIcon, color}),
+          }}
+        />
+
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarIcon: ({color}) => renderTabIcon({icon: ProfileIcon, color}),
+          }}
+        />
+      </Tab.Group>
+    </Tab.Navigator>
+  );
+};
+
+

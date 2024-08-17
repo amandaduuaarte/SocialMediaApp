@@ -33,7 +33,14 @@ export const StackRoutes = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="AddStories" component={AddStories} />
+        <Stack.Screen
+          name="AddStories"
+          component={AddStories}
+          options={{
+            headerShown: false,
+            presentation: 'modal',
+          }}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );

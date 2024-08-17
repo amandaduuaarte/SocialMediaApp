@@ -4,8 +4,9 @@ import styled from 'styled-components/native';
 type TAccountStoriesPhoto = {
   isAvailable?: boolean;
 };
+
 export const Container = styled.View`
-flex: 1;
+  flex: 1;
   padding: 10% 24px 0 24px;
 `;
 
@@ -40,6 +41,7 @@ export const Post = styled.ImageBackground`
   width: 328px;
   padding: 12px;
   justify-content: space-between;
+  align-self: center;
 `;
 
 export const PostHeader = styled.View``;
@@ -55,7 +57,7 @@ export const PostInfoContainer = styled.TouchableOpacity`
 `;
 
 export const Icon = styled.Image`
-height: 16px;
-width: 16px;
-align-self: center;
+  height: 16px;
+  width: 16px;
+  align-self: center;
 `;

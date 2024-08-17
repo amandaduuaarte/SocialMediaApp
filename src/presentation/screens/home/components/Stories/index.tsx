@@ -12,9 +12,13 @@ type TStoriesData = {
   isAvailable: boolean;
 };
 
-const renderItem = ({item}: ListRenderItemInfo<TStoriesData>) => {
+const renderItem = ({item, index}: ListRenderItemInfo<TStoriesData>) => {
   return (
-    <TouchableOpacity style={{alignSelf: 'center'}} onPress={() => null}>
+    <TouchableOpacity
+      key={index}
+      testID={`view.stories.feed.home.${index}`}
+      style={{alignSelf: 'center'}}
+      onPress={() => null}>
       <AccountStoriesPhoto
         source={{uri: item.userProfile}}
         isAvailable={item.isAvailable}
@@ -31,8 +35,10 @@ export const Stories = ({
   action: () => void;
 }) => {
   return (
-    <StoriesContainer>
-      <TouchableOpacity onPress={action}>
+    <StoriesContainer testID="view.stories.feed.home">
+      <TouchableOpacity
+        onPress={action}
+        testID="button.stories.feed.addStories">
         <Image source={AddStories} />
       </TouchableOpacity>
 

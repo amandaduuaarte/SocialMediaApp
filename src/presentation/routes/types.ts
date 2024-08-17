@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type TTabRoutes = {
-  Home: undefined;
+  StackRoutes: undefined;
   Profile: undefined;
   Conversations: undefined;
   Messaging: undefined;

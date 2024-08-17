@@ -59,7 +59,7 @@ export const TabRoutes = () => {
           tabBarShowLabel: false,
         }}>
         <Tab.Screen
-          name="Home"
+          name="StackRoutes"
           component={StackRoutes}
           options={{
             tabBarIcon: ({color}) => renderTabIcon({icon: HomeIcon, color}),

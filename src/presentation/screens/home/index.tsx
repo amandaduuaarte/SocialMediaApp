@@ -1,10 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {
-  FlatList,
-  ListRenderItemInfo,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import React, {useCallback} from 'react';
+import {FlatList, ListRenderItemInfo, TouchableOpacity} from 'react-native';
 
 import {
   Container,
@@ -14,7 +9,6 @@ import {
   PostUserInfo,
 } from './styles';
 import {Typography} from '@/presentation/components/Typography';
-import {TAppRoutesNavigationProps} from '@/presentation/routes/app.routes';
 
 import NotificationIcon from '@/assets/images/icons/notification.svg';
 
@@ -23,9 +17,9 @@ import {useGetFeedInfoUseCase} from '@/domain/useCases/feed/useGetFeedInfo';
 import {TFeed} from '@/data/types/useCases/feed/useGetPostsTypes';
 import {PostInfo} from './components/Posts/components/PostInfo';
 import {Header} from './components/Posts/components/Header';
-import {useFeedStore} from '@/domain/store/feedStore';
 
-const Likes = '@/assets/images/icons/like.png';
+import {TAppRoutesNavigationProps} from '@/presentation/routes/types';
+
 type TProps = TAppRoutesNavigationProps<'Home'>;
 
 const renderEmptyComponent = () => {
@@ -38,7 +32,6 @@ const renderEmptyComponent = () => {
 
 export const Home = ({navigation}: TProps) => {
   const {data} = useGetFeedInfoUseCase();
-  const {setLike, likes} = useFeedStore();
 
   const renderItem = useCallback(({item}: ListRenderItemInfo<TFeed>) => {
     return (
@@ -65,6 +58,10 @@ export const Home = ({navigation}: TProps) => {
     );
   }, []);
 
+  const navigateToAddStories = () => {
+    navigation.navigate('AddStories');
+  };
+
   return (
     <Container>
       <NotificationLine>
@@ -76,7 +73,9 @@ export const Home = ({navigation}: TProps) => {
       </NotificationLine>
 
       <Typography value="Feed" type="H2Bold" />
-      {data?.stories && <Stories users={data.stories} />}
+      {data?.stories && (
+        <Stories users={data.stories} action={navigateToAddStories} />
+      )}
 
       <FlatList
         showsVerticalScrollIndicator={false}

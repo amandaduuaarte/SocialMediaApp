@@ -23,10 +23,16 @@ const renderItem = ({item}: ListRenderItemInfo<TStoriesData>) => {
   );
 };
 
-export const Stories = ({users}: {users: TStoriesData[]}) => {
+export const Stories = ({
+  users,
+  action,
+}: {
+  users: TStoriesData[];
+  action: () => void;
+}) => {
   return (
     <StoriesContainer>
-      <TouchableOpacity onPress={() => null}>
+      <TouchableOpacity onPress={action}>
         <Image source={AddStories} />
       </TouchableOpacity>
 

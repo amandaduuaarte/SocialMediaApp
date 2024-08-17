@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  NativeStackScreenProps,
-  createNativeStackNavigator,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Image, ImageProps} from 'react-native';
 
 import {Home} from '../screens';
@@ -17,22 +14,8 @@ import ProfileIcon from '@/assets/images/icons/profile.png';
 import ConversationsIcon from '@/assets/images/icons/conversations.png';
 import LikeIcon from '@/assets/images/icons/like.png';
 import {AddStories} from '../screens/addStories';
-type TTabRoutes = {
-  Home: undefined;
-  Profile: undefined;
-  Conversations: undefined;
-  Messaging: undefined;
-};
+import {TStackRoutes, TTabRoutes} from './types';
 
-type TStackRoutes = {
-  Home: undefined;
-  AddStories: undefined;
-};
-
-type TAppRoutes = TTabRoutes & TStackRoutes;
-
-export type TAppRoutesNavigationProps<T extends keyof TAppRoutes> =
-  NativeStackScreenProps<TAppRoutes, T>;
 
 const renderTabIcon = ({icon, color}: {icon: ImageProps; color: string}) => {
   return <Image source={icon} style={{tintColor: color}} />;

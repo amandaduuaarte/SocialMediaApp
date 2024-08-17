@@ -6,7 +6,7 @@ import {ImageSourcePropType} from 'react-native';
 type TPostInfo = {
   icon: ImageSourcePropType;
   value: number;
-  action: () => void;
+  action?: () => void;
 };
 export const PostInfo = ({action, icon, value}: TPostInfo) => {
   return (

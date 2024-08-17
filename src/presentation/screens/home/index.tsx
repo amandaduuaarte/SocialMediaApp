@@ -24,7 +24,7 @@ type TProps = TAppRoutesNavigationProps<'Home'>;
 
 const renderEmptyComponent = () => {
   return (
-    <ContainerEmptyState>
+    <ContainerEmptyState testID="view.posts.feed.home.emptyState">
       <Typography value="Nothing to Show" align="center" />
     </ContainerEmptyState>
   );
@@ -33,9 +33,11 @@ const renderEmptyComponent = () => {
 export const Home = ({navigation}: TProps) => {
   const {data} = useGetFeedInfoUseCase();
 
-  const renderItem = useCallback(({item}: ListRenderItemInfo<TFeed>) => {
+  const renderItem = useCallback(({item, index}: ListRenderItemInfo<TFeed>) => {
     return (
-      <Post source={{uri: item.posts.source}}>
+      <Post
+        source={{uri: item.posts.source}}
+        testID={`view.posts.feed.home.${index}`}>
         <Header
           hour={item.posts.postWhenInHours}
           photoProfile={item.userProfile}
@@ -45,13 +47,11 @@ export const Home = ({navigation}: TProps) => {
           <PostInfo
             icon={require('../../../assets/images/icons/like.png')}
             value={item.posts.likes}
-            action={() => null}
           />
 
           <PostInfo
             icon={require('../../../assets/images/icons/conversations.png')}
             value={item.posts.comments}
-            action={() => null}
           />
         </PostUserInfo>
       </Post>
@@ -67,7 +67,7 @@ export const Home = ({navigation}: TProps) => {
       <NotificationLine>
         <Typography value="GOT Socially" type="Small" />
 
-        <TouchableOpacity onPress={() => null}>
+        <TouchableOpacity>
           <NotificationIcon />
         </TouchableOpacity>
       </NotificationLine>

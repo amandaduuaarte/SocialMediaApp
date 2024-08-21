@@ -19,7 +19,7 @@ const getAccountInfo = async (): Promise<IUseGetAccountInfo> => {
 };
 
 export const getAccountInfoService = () => {
-  const {data, isSuccess, isError} = useQuery({
+  const {data, isSuccess, isError, isLoading} = useQuery({
     queryKey: 'USER_ACCOUNT',
     queryFn: getAccountInfo,
   });
@@ -28,5 +28,6 @@ export const getAccountInfoService = () => {
     data,
     isSuccess,
     isError,
+    isLoading
   };
 };

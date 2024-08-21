@@ -9,16 +9,26 @@ import {useGetUserPhotosUseCase} from '@/domain/useCases/profile/useGetUserPhoto
 import {useGetAccountInfoUseCase} from '@/domain/useCases/profile/useGetAccountInfo';
 import {ProfileInfo} from './components/ProfileInfo';
 import {UserPosts} from './components/UserPosts';
+import {ActivityIndicator, View} from 'react-native';
+import {colors} from '@/presentation/colors';
+
+const ProfilePhotoLoading = () => {
+  return <ActivityIndicator color={colors.c3.pink} size={'large'} />;
+};
 
 export const Profile = () => {
-  const {userPhotos} = useGetUserPhotosUseCase();
-  const {accountInfo} = useGetAccountInfoUseCase();
+  const {userPhotos, isLoading: isLoadingPhoto} = useGetUserPhotosUseCase();
+  const {accountInfo, isLoading: isLoadingPosts} = useGetAccountInfoUseCase();
 
   const profilePhoto = userPhotos?.photos?.userPhoto;
 
   return (
     <Container source={ProfileBackground}>
-      <ProfileIcon testID="profile.photo.icon" source={{uri: profilePhoto}} />
+      {isLoadingPhoto ? (
+        <ProfilePhotoLoading />
+      ) : (
+        <ProfileIcon testID="profile.photo.icon" source={{uri: profilePhoto}} />
+      )}
 
       <Typography value={accountInfo?.name} align="center" type="Body" />
       <Typography
@@ -30,7 +40,9 @@ export const Profile = () => {
 
       {!!accountInfo && <ProfileInfo info={accountInfo.accountInfo} />}
 
-      {userPhotos && <UserPosts userPhotos={userPhotos} />}
+      {userPhotos && (
+        <UserPosts userPhotos={userPhotos} isLoading={isLoadingPosts} />
+      )}
     </Container>
   );
 };

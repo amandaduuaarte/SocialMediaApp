@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, ListRenderItemInfo} from 'react-native';
+import {ActivityIndicator, FlatList, ListRenderItemInfo} from 'react-native';
 import {Photo, PhotosContainerHeader} from '../../styles';
 
 import PhotosIcon from '@/assets/images/icons/ButtonPhotos.svg';
@@ -9,8 +9,15 @@ import {
   TUserPhotoPage,
   TUserPhotos,
 } from '@/data/types/useCases/profile/useGetUserPhotosTypes';
+import {colors} from '@/presentation/colors';
 
-export const UserPosts = ({userPhotos}: {userPhotos: TUserPhotos}) => {
+export const UserPosts = ({
+  userPhotos,
+  isLoading,
+}: {
+  userPhotos: TUserPhotos;
+  isLoading: boolean;
+}) => {
   const renderHeader = useCallback(() => {
     return (
       <PhotosContainerHeader>
@@ -34,14 +41,20 @@ export const UserPosts = ({userPhotos}: {userPhotos: TUserPhotos}) => {
   );
 
   return (
-    <FlatList
-      keyExtractor={item => item.id}
-      ListHeaderComponent={renderHeader}
-      data={userPhotos?.photos?.pages}
-      renderItem={renderPhotoItem}
-      numColumns={2}
-      columnWrapperStyle={{gap: 12}}
-      showsVerticalScrollIndicator={false}
-    />
+    <>
+      {isLoading ? (
+        <ActivityIndicator color={colors.c2.accentStroke} size={'small'} />
+      ) : (
+        <FlatList
+          keyExtractor={item => item.id}
+          ListHeaderComponent={renderHeader}
+          data={userPhotos?.photos?.pages}
+          renderItem={renderPhotoItem}
+          numColumns={2}
+          columnWrapperStyle={{gap: 12}}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
+    </>
   );
 };

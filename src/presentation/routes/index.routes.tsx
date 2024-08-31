@@ -1,10 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {StackRoutes, TabRoutes} from './app.routes';
-
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {TabRoutes} from './app.routes';
 
 export const Routes = () => {
   return <NavigationContainer>{TabRoutes()}</NavigationContainer>;

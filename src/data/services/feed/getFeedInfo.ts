@@ -10,7 +10,7 @@ const getFeedInfo = async (): Promise<TResponse> => {
   try {
     const response = await httpClient.request({
       method: 'GET',
-      url: 'http://localhost:3000/home',
+      url: 'http://192.168.18.7:3000/home',
     });
     return response.body;
   } catch (error) {

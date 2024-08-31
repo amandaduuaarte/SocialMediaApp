@@ -6,6 +6,7 @@ import {Home} from '../screens';
 import {Profile} from '../screens/profile';
 import {Conversations} from '../screens/conversations';
 import {Messaging} from '../screens/messaging';
+import {AddStories} from '../screens/addStories';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '../colors';
 
@@ -13,7 +14,6 @@ import HomeIcon from '@/assets/images/icons/home.png';
 import ProfileIcon from '@/assets/images/icons/profile.png';
 import ConversationsIcon from '@/assets/images/icons/conversations.png';
 import LikeIcon from '@/assets/images/icons/like.png';
-import {AddStories} from '../screens/addStories';
 import {TStackRoutes, TTabRoutes} from './types';
 
 

@@ -48,6 +48,7 @@ const NoPermissionScreen = () => {
 export const AddStories = ({navigation}: TProps) => {
   const [cameraPosition, setCameraPosition] = useState<TCameraPosition>('back');
   const {hasPermission, requestPermission} = useGetCameraPermission();
+
   const onClose = () => navigation.goBack();
 
   const device = useCameraDevice(cameraPosition);
@@ -63,7 +64,6 @@ export const AddStories = ({navigation}: TProps) => {
     }
   };
 
-  console.log(hasPermission);
   useEffect(() => {
     if (!hasPermission) {
       requestPermission();

@@ -9,7 +9,7 @@ import {useGetUserPhotosUseCase} from '@/domain/useCases/profile/useGetUserPhoto
 import {useGetAccountInfoUseCase} from '@/domain/useCases/profile/useGetAccountInfo';
 import {ProfileInfo} from './components/ProfileInfo';
 import {UserPosts} from './components/UserPosts';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {colors} from '@/presentation/colors';
 
 const ProfilePhotoLoading = () => {

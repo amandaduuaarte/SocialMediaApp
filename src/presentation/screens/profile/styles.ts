@@ -11,6 +11,7 @@ export const ProfileIcon = styled.Image`
   height: 136px;
   width: 100px;
   border-radius: 8px;
+  margin-top: 24px;
 `;
 
 export const UserInfoContainer = styled.View`

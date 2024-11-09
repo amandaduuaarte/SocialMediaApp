@@ -1,8 +1,16 @@
 module.exports = {
   root: true,
-  extends: '@react-native',
-  plugins: ['simple-import-sort'],
+  extends: [
+    '@react-native',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['simple-import-sort', 'react', 'react-native', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
     'import/no-unresolved': 0,
     'import/namespace': 0,
     'no-label-var': 0,

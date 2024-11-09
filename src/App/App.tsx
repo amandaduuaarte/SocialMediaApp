@@ -1,9 +1,15 @@
 import React from 'react';
 
-import {AppRoutes} from '../presentation/routes/app.routes';
+import {Routes} from '@/presentation/routes/index.routes';
+import {QueryClient, QueryClientProvider} from 'react-query';
 
+const queryClient = new QueryClient();
 function App(): React.JSX.Element {
-  return <AppRoutes />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Routes />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

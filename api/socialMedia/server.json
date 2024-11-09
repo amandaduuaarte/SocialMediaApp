@@ -1,0 +1,98 @@
+{
+  "userInfo": {
+    "name": "Dany Tar",
+    "userName": "danyDragons",
+    "accountInfo": [
+      {
+        "label": "Posts",
+        "value": "35"
+      },
+      {
+        "label": "Followers",
+        "value": "1,553"
+      },
+      {
+        "label": "Follows",
+        "value": "153"
+      }
+    ]
+  },
+  "profile": {
+    "photos": {
+      "userPhoto": "https://static.wikia.nocookie.net/gameofthrones/images/b/b6/DanyS8E6.jpg/revision/latest/scale-to-width-down/1200?cb=20220110160915&path-prefix=pt-br",
+      "pages": [
+        {
+          "id": 1,
+          "source": "https://s2.glbimg.com/kTdifxjWYFp27Y-0UlFZVQmCuXo=/620x466/top/e.glbimg.com/og/ed/f/original/2020/10/23/ek_eyvuuyaec1aj.jpg"
+        },
+        {
+          "id": 2,
+          "source": "https://upload.wikimedia.org/wikipedia/pt/7/7d/Capa_de_25.png"
+        },
+        {
+          "id": 3,
+          "source": "https://upload.wikimedia.org/wikipedia/pt/7/7d/Capa_de_25.png"
+        },
+        {
+          "id": 4,
+          "source": "https://upload.wikimedia.org/wikipedia/pt/thumb/c/cd/Endless_Summer_Vacation.jpg/220px-Endless_Summer_Vacation.jpg"
+        }
+      ]
+    }
+  },
+  "home": {
+    "stories": [
+      {
+        "userProfile": "https://upload.wikimedia.org/wikipedia/en/2/22/Cersei_Lannister_in_Black_Dress_in_Season_5.jpg",
+        "isAvailable": true
+      },
+      {
+        "userProfile": "https://i.insider.com/59a5dd9cb065da49008b4878?width=700",
+        "isAvailable": false
+      },
+      {
+        "userProfile": "https://upload.wikimedia.org/wikipedia/pt/f/f2/Arya_stark_s7.jpg",
+        "isAvailable": true
+      },
+      {
+        "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/5/50/S3E9_Robb_Stark_main.jpg/revision/latest?cb=20160718071203",
+        "isAvailable": false
+      }
+    ],
+    "feed": [
+      {
+        "userName": "aryaNobody",
+        "userProfile": "https://upload.wikimedia.org/wikipedia/pt/f/f2/Arya_stark_s7.jpg",
+        "posts": {
+          "id": 1,
+          "source": "https://www.einerd.com.br/wp-content/uploads/2019/04/arya-stark-game-of-thrones-890x445.jpeg",
+          "likes": 123,
+          "comments": 32,
+          "postWhenInHours": 120
+        }
+      },
+      {
+        "userName": "theYoungWolf",
+        "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/5/50/S3E9_Robb_Stark_main.jpg/revision/latest?cb=20160718071203",
+        "posts": {
+          "id": 2,
+          "source": "https://miro.medium.com/v2/resize:fit:736/0*v-7mlXlCuDSFMbBS.jpg",
+          "likes": 450,
+          "comments": 52,
+          "postWhenInHours": 240
+        }
+      },
+      {
+        "userName": "ObTheEvil",
+        "userProfile": "https://static.wikia.nocookie.net/gameofthrones/images/6/65/Oberyn.jpg/revision/latest?cb=20211221171916&path-prefix=pt-br",
+        "posts": {
+          "id": 3,
+          "source": "https://static.wikia.nocookie.net/gameofthrones/images/9/94/Oberyn_-_The_Laws_of_Gods_and_Men.jpg/revision/latest/scale-to-width-down/1430?cb=20160812232824",
+          "likes": 2000,
+          "comments": 5900,
+          "postWhenInHours": 860
+        }
+      }
+    ]
+  }
+}

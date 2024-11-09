@@ -3,7 +3,7 @@ import { IUseGetAccountInfo } from '@/data/interfaces/useCases/profile/useGetAcc
 import {HttpClientAdapter} from '@/main/adapters';
 import {useQuery} from 'react-query';
 
-const getAccountInfo = async (): Promise<IUseGetAccountInfo | undefined> => {
+const getAccountInfo = async (): Promise<IUseGetAccountInfo> => {
   const httpClient = HttpClientAdapter();
 
   try {
@@ -19,7 +19,7 @@ const getAccountInfo = async (): Promise<IUseGetAccountInfo | undefined> => {
 };
 
 export const getAccountInfoService = () => {
-  const {data, isSuccess, isError} = useQuery({
+  const {data, isSuccess, isError, isLoading} = useQuery({
     queryKey: 'USER_ACCOUNT',
     queryFn: getAccountInfo,
   });
@@ -28,5 +28,6 @@ export const getAccountInfoService = () => {
     data,
     isSuccess,
     isError,
+    isLoading
   };
 };

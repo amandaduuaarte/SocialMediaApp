@@ -1,21 +1,90 @@
-import React from 'react';
-import {Button} from 'react-native';
+import React, {useCallback} from 'react';
+import {FlatList, ListRenderItemInfo, TouchableOpacity} from 'react-native';
 
-import {Container} from './styles';
+import {
+  Container,
+  ContainerEmptyState,
+  NotificationLine,
+  Post,
+  PostUserInfo,
+} from './styles';
 import {Typography} from '@/presentation/components/Typography';
-import {TAppRoutesNavigationProps} from '@/presentation/routes/app.routes';
+
+import NotificationIcon from '@/assets/images/icons/notification.svg';
+
+import {Stories} from './components/Stories';
+import {useGetFeedInfoUseCase} from '@/domain/useCases/feed/useGetFeedInfo';
+import {TFeed} from '@/data/types/useCases/feed/useGetPostsTypes';
+import {PostInfo} from './components/Posts/components/PostInfo';
+import {Header} from './components/Posts/components/Header';
+
+import {TAppRoutesNavigationProps} from '@/presentation/routes/types';
 
 type TProps = TAppRoutesNavigationProps<'Home'>;
 
+const renderEmptyComponent = () => {
+  return (
+    <ContainerEmptyState testID="view.posts.feed.home.emptyState">
+      <Typography value="Nothing to Show" align="center" />
+    </ContainerEmptyState>
+  );
+};
+
 export const Home = ({navigation}: TProps) => {
-  const handleSaveStorage = () => {
-    navigation.navigate('Profile');
+  const {data} = useGetFeedInfoUseCase();
+
+  const renderItem = useCallback(({item, index}: ListRenderItemInfo<TFeed>) => {
+    return (
+      <Post
+        source={{uri: item.posts.source}}
+        testID={`view.posts.feed.home.${index}`}>
+        <Header
+          hour={item.posts.postWhenInHours}
+          photoProfile={item.userProfile}
+          userName={item.userName}
+        />
+        <PostUserInfo>
+          <PostInfo
+            icon={require('../../../assets/images/icons/like.png')}
+            value={item.posts.likes}
+          />
+
+          <PostInfo
+            icon={require('../../../assets/images/icons/conversations.png')}
+            value={item.posts.comments}
+          />
+        </PostUserInfo>
+      </Post>
+    );
+  }, []);
+
+  const navigateToAddStories = () => {
+    navigation.navigate('AddStories');
   };
 
   return (
     <Container>
-      <Typography value="oi" type="Large" />
-      <Button title="save" onPress={handleSaveStorage} testID="save_button" />
+      <NotificationLine>
+        <Typography value="GOT Socially" type="Small" />
+
+        <TouchableOpacity>
+          <NotificationIcon />
+        </TouchableOpacity>
+      </NotificationLine>
+
+      <Typography value="Feed" type="H2Bold" />
+      {data?.stories && (
+        <Stories users={data.stories} action={navigateToAddStories} />
+      )}
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{gap: 2, paddingBottom: 45}}
+        scrollEnabled={!!data?.feed}
+        data={data?.feed}
+        renderItem={renderItem}
+        ListEmptyComponent={renderEmptyComponent}
+      />
     </Container>
   );
 };

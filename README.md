@@ -1,44 +1,42 @@
-<div align="center">
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="ReactJS"> 
-<h2 align="center">React Native Template : </h2>
-</div>
+# SocialMedia
 
-## Quais libs já estão configuradas: 
+> This project consists of developing a layout for a social network application. In addition to having some implementations of technologies commonly used in the market.
 
-* Styled-Components
-* Jest
-* React-Navigation
-* React-Query
-* Eslint
-* Prettier
-* Axios
-* React-Native MMKV
+## Demo
 
-## Como rodar a aplicação: 
-No seu terminal
+Add GIFs or screenshots here to show what your project looks like in action.
 
-IOS
-```bash
-# using npm
-npm run ios
+![Demo GIF HOME](gifs/home.gif)
+![Demo GIF PROFILE](gifs/profile.gif)
 
-# OR using Yarn
-yarn run ios
-```
-Android 
+## Technologies Used
 
-```bash
-# using npm
-npm run android
+List the technologies and tools used in this project, for example:
 
-# OR using Yarn
-yarn run android
-```
+- **ReactNative** - Frontend library
+- **StyledComponents** - Style library
+- **Axios** - Client library
+- **react-native-mmkv** - Storage
+- **react-query** - Requests
+- **zustand** - state manager
+- **Jest** - Testing library
 
-## Como é divida a estrutura de pastas: 
+## Project Structure
 
-Aqui existe um tech guide para que se possa compreender como foi feita a divisão de pastas:
+Outline the main folders and files in your project to guide contributors and users:
 
-![ReactNativeStructure](https://github.com/amandaduuaarte/ReactNative-Template/assets/89158507/513e9100-0aea-417e-9787-aa8db51c9c89)
-
->**Note**: Esse projeto foi desenvolvido para servir como base para outros projetos usando react-native.
+```plaintext
+├── src/                    # Source files
+├── App/                    # Static files
+│   ├── App.tsx             
+│   ├── assets/             # Images and icons
+│   ├── data/               # API calls 
+│   ├── domain/             # Business logic
+│   └── infra/              # Library structure
+│   └── jest/               
+│   └── main/               # Adapters
+│   └── presentation/       # Screens and components
+│   └── types/              
+├── .gitignore              # Files and folders to ignore in version control
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project documentation

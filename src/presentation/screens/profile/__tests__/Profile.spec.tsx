@@ -28,10 +28,12 @@ describe('Integration tests', () => {
   beforeAll(() => {
     (useGetAccountInfoUseCase as jest.Mock).mockReturnValue({
       accountInfo: USER_INFO_MOCK,
+      isLoading: false,
     });
 
     (useGetUserPhotosUseCase as jest.Mock).mockReturnValue({
       userPhotos: USER_PHOTOS_MOCK,
+      isLoading: false,
     });
   });
 

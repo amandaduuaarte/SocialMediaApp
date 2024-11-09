@@ -1,7 +1,7 @@
-import {TStudent} from '@/data/types';
+
 import {create} from 'zustand';
 
-type TUser = TStudent.Params;
+type TUser = {};
 
 type State = {
   user?: TUser;

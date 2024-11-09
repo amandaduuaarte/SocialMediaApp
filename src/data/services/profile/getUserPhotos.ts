@@ -18,7 +18,7 @@ const getPhotos = async (): Promise<TUserPhotos | undefined> => {
 };
 
 export const getUserPhotos = () => {
-  const {data, isSuccess, isError} = useQuery({
+  const {data, isSuccess, isError, isLoading} = useQuery({
     queryKey: 'USER_PHOTOS',
     queryFn: getPhotos,
   });
@@ -27,5 +27,6 @@ export const getUserPhotos = () => {
     data,
     isSuccess,
     isError,
+    isLoading
   };
 };

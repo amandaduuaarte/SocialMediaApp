@@ -40,3 +40,20 @@ Outline the main folders and files in your project to guide contributors and use
 ├── .gitignore              # Files and folders to ignore in version control
 ├── package.json            # Project dependencies and scripts
 └── README.md               # Project documentation
+
+
+# Clone the repository
+git clone hhttps://github.com/amandaduuaarte/SocialMediaApp.git
+
+# Navigate to the project directory
+cd SocialMediaApp
+
+# Install dependencies
+yarn
+
+# Run the ios folder
+cd ios
+pod install
+
+# run app
+yarn ios

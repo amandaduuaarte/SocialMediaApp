@@ -55,5 +55,8 @@ yarn
 cd ios
 pod install
 
+# run json server 
+npx json-server --watch api/socialMedia/server.json  
+
 # run app
 yarn ios
